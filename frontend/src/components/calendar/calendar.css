@@ -1,0 +1,20 @@
+.fc-header-toolbar {
+  margin: 0.5rem 0 !important;
+}
+
+.fc-button {
+  transform: scale(0.75);
+}
+
+.fc .fc-view-harness-active > .fc-view {
+  position: relative !important;
+  height: 391px;
+}
+
+.fc-daygrid-body .presentation .row {
+  max-height: 2rem;
+}
+
+.fc .fc-toolbar-title {
+  font-size: 1.25rem !important;
+}
