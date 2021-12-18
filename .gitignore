@@ -1,4 +1,10 @@
+# .
+todos.txt
+
+#backend
 /backend/.env
+
+# frontend
 /frontend/node_modules
 /frontend/public
 

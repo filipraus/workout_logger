@@ -1,72 +1,114 @@
 import React from 'react';
-
 import './workout.css';
 
-class Set extends React.Component {
-  render() {
-    return (
-      <div className="set">
-        <div className="set-reps">
-          <div>-</div>
-          <input type="number" name="reps" value={this.props.reps} />
-          <div>+</div>
-        </div>
-        <div className="set-weight">
-          <div>-</div>
-          <input type="number" name="weight" value={this.props.weight} />
-          <div>+</div>
-        </div>
-      </div>
-    )
-  }
-}
-
-class Exercise extends React.Component {
-  render() {
-    let sets = [];
-    this.props.sets((set, index) => {
-      sets.push(
-        <Set
-          row={index} 
-          reps={set.reps}
-          weight={set.weight}
-        />
-      );
-    })
-
-    return (
-      <div className="exercise">
-        <div className="exercise-name">
-          {this.props.name}
-        </div>
-        <div className="exercise-sets">
-          {sets}
-        </div>
-      </div>
-    )
-  }
-}
+import Exercise from '../exercise/exercise';
+import SelectExercise from '../selectExercise/selectExercise';
 
 class Workout extends React.Component {
-  render() {
-    const workout = this.props.date;
-    let exercises = [];
+  constructor(props) {
+    super(props);
+    this.state = {
+      workout: '',
+      exercises: [],
+      workoutLoaded: false,
+      showSelectExercise: false,
+    }
+  }
 
-    this.props.exercises.map((exercise, index) => {
+  componentDidMount() {
+    this.getOrCreateWorkout();
+  }
+
+  getOrCreateWorkout() {
+    const options = {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    }
+
+    fetch(`http://127.0.0.1:8000/api/retrieve/workout/${this.props.date}`, options)
+      .then(res => res.json())
+      .then(res => {
+        if (res.detail == 'Not found.') {
+          this.createWorkout();
+        } else {
+          this.setState({
+            workout: res.date,
+            exercises: res.exercises,
+            workoutLoaded: true,
+          });
+        }
+    }).catch(err => console.log(err));
+  }
+
+  createWorkout() {
+    const options = {
+      method: 'POST',
+      body: JSON.stringify({date: this.props.date}),
+      headers: { 'Content-Type': 'application/json' },
+    }
+
+    fetch(`http://127.0.0.1:8000/api/create/workout`, options)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          workout: res.date,
+          workoutLoaded: true,
+        });
+    }).catch(err => console.log(err));
+  }
+
+  deleteWorkout(workout) {
+    const options = {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+    }
+
+    fetch(`http://127.0.0.1:8000/api/retrieve/workout/${workout.date}`, options)
+      .then(res => res.json())
+      .then(res => {
+        if (res.detail != 'Not found') {
+          this.setState({
+            workout: res.date,
+          }, () => console.log('Workout: ', this.state.workout));
+        }
+    }).catch(err => console.log(err));
+  }
+
+  handleExerciseAddedToWorkout(exercise) {
+    this.setState({
+      exercises: this.state.exercises.concat(exercise),
+    });
+  }
+  
+  render() {
+    let exercises = [];
+    this.state.exercises.map((exercise, index) => {
       exercises.push(
         <Exercise
-          name={exercise.name}
-          sets={exercise.sets}
+          key={index + 1}
+          workout={this.state.workout}
+          exercise={exercise}
         />
       );
     });
 
     return (
-      <div className="workout">
-        <div className="exercises">
-          {exercises}
-        </div>
+      <div className='workout'>
+        {this.state.workoutLoaded &&
+          <div className='exercises'>
+            {exercises}
+          </div>
+        }
+        {this.state.showSelectExercise &&
+          <SelectExercise 
+            workout={this.state.workout}
+            onExerciseAddedToWorkout={(exercise) => this.handleExerciseAddedToWorkout(exercise)}
+          />
+        }
+        <button type='button' onClick={() => this.setState({showSelectExercise: true})}>Log Exercise</button>
       </div>
     )
   }
 }
+
+export default Workout;
