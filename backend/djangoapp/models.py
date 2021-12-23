@@ -15,6 +15,7 @@ class ExerciseOption(models.Model):
     return self.name
 
 class Workout(models.Model):
+  title = models.CharField(max_length=16, blank=True)
   date = models.CharField(max_length=32, blank=False, unique=True, primary_key=True)
 
   def __str__(self):
@@ -29,6 +30,7 @@ class Set(models.Model):
   pos = models.IntegerField()
   weight = models.DecimalField(decimal_places=1, max_digits=3)
   reps = models.IntegerField()
+  checked = models.BooleanField(null=True, default=False)
 
   def __str__(self):
     return str(self.reps) + ' x ' + str(self.weight)

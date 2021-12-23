@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './selectExercise.css';
+
 class SelectExercise extends React.Component {
   constructor(props) {
     super(props);
@@ -17,43 +19,23 @@ class SelectExercise extends React.Component {
   getMuscleGroups() {
     fetch("http://127.0.0.1:8000/api/muscle_groups_list")
       .then(response => response.json())
-      .then(data => {
+      .then(res => {
         this.setState({
-          muscleGroups: data,
+          muscleGroups: res,
         })
       }
     );
   }
 
   getExerciseOptions() {
-    fetch("http://127.0.0.1:8000/api/exercises_list")
+    fetch("http://127.0.0.1:8000/api/exercise_options_list")
       .then(response => response.json())
-      .then(data => {
+      .then(res => {
         this.setState({
-          exerciseOptions: data,
+          exerciseOptions: res,
         })
       }
     );
-  }
-  
-  addExerciseToWorkout(selectedExerciseName) {
-    const exercise = {
-      workout: this.props.workout,
-      exercise: selectedExerciseName
-    }
-    
-    const options = {
-      method: 'POST',
-      body: JSON.stringify(exercise),
-      headers: { 'Content-Type': 'application/json' },
-    }
-
-    fetch(`http://127.0.0.1:8000/api/add/exercise`, options)
-      .then(res => res.json())
-      .then(res => {
-        this.props.onExerciseAddedToWorkout(res);
-      })
-      .catch(err => console.log(err));
   }
 
   render() {
@@ -68,7 +50,7 @@ class SelectExercise extends React.Component {
                   return (
                     <div 
                       key={index} 
-                      onClick={() => this.addExerciseToWorkout(exerciseOption.name)}
+                      onClick={() => this.props.onExerciseSelected(exerciseOption.name)}
                     >
                       {exerciseOption.name}
                     </div>

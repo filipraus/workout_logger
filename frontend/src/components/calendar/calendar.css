@@ -1,5 +1,15 @@
 .fc-header-toolbar {
-  margin: 0.5rem 0 !important;
+  padding: 0 16px;
+  margin: 0 !important;
+}
+
+.fc-col-header-cell-cushion {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.fc-daygrid-day-top {
+  justify-content: center;
 }
 
 .fc-button {
@@ -12,9 +22,113 @@
 }
 
 .fc-daygrid-body .presentation .row {
-  max-height: 2rem;
+  max-height: 32px;
 }
 
 .fc .fc-toolbar-title {
-  font-size: 1.25rem !important;
+  font-size: 20px !important;
+}
+
+.fc-daygrid-event {
+  color: #000;
+  background: none;
+  border: none;
+}
+
+.fc-h-event {
+  background-color: #fff !important;
+  border: none !important;
+}
+
+.fc-theme-standard td, .fc-theme-standard th, .fc-scrollgrid-liquid {
+  border: none !important;
+}
+
+.fc-daygrid .fc-event-main {
+  color: #000 !important;
+}
+
+.presentation {
+  border: none;
+}
+
+.fc-daygrid-event {
+  margin: 8px !important;
+}
+
+.fc-event-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.workout-label {
+  background-color: #ddd;
+  border-radius: 8px;
+  height: 42px;
+  width: 42px;
+}
+
+.fc-daygrid-event::before {
+  box-shadow: none !important;
+}
+
+.fc-daygrid-event::after {
+  display: none;
+  box-shadow: none !important;
+  background-color: none !important;
+  border-color: none !important;
+}
+
+.fc-event-main::after {
+  display: none;
+  box-shadow: none !important;
+}
+
+.fc-prev-button, .fc-next-button {
+  background-color: #121212 !important;
+}
+
+.calendar-controls {
+  display: flex;
+  flex-direction: row;
+  padding: 8px 0 8px 16px;
+  width: 100%;
+}
+
+.calendar-controls button {
+  background-color: #121212;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  margin-right: 8px;
+  padding: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.fc-dayGrid-view, .fc-daygrid-body {
+  height: 100% !important;
+}
+
+.fc-view-harness {
+  background-color: #f3f3f3;
+}
+
+.fc-scrollgrid-sync-table {
+  background-color: #f3f3f3;
+}
+
+.fc-daygrid {
+  height: 100% !important;
+}
+
+.fc-toolbar-title {
+  padding: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.fc-daygrid-day {
+  max-height: 90px !important;
 }

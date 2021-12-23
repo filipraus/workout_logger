@@ -1,0 +1,38 @@
+.select-exercise {
+  box-shadow: 0px 2px 4px 1px #ccc;
+  border-radius: 6px;
+  height: 100%;
+  width: 100%;
+}
+
+.select-exercise summary {
+  /* background-color: #121212; */
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom: 1px solid #ddd;
+  /* color: #fff; */
+  font-weight: bold;
+  height: 40px;
+  letter-spacing: 1px;
+  line-height: 40px;
+  padding-left: 16px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.select-exercise details:last-child summary {
+  border-bottom: none;
+}
+
+.select-exercise div {
+  border-bottom: 1px solid #ddd;
+  height: 40px;
+  letter-spacing: 1px;
+  line-height: 40px;
+  padding-left: 48px;
+  text-align: left;
+}
+
+.select-exercise details:last-child div:last-child {
+  border-bottom: none;
+}

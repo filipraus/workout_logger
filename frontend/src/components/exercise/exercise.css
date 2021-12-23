@@ -1,0 +1,109 @@
+.exercise {
+  background-color: #f3f3f3;
+  box-shadow: 0px 2px 4px 1px #ccc;
+  border-radius: 6px;
+  margin: 0 16px;
+  width: 100%;
+}
+
+.exercise * {
+  text-align: center;
+}
+
+.exercise-name {
+  background-color: #fff;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: left;
+  padding: 8px 0 4px 16px;
+}
+
+.delete-exercise-button {
+  background-color: rgba(255, 0, 0, 0.8);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.exercise-info {
+  background-color: #f3f3f3;
+  font-size: 11px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 4px 0;
+}
+
+.exercise-info div {
+  width: 100px;
+}
+
+.exercise-sets {
+  background-color: #f3f3f3;
+  width: 100%;
+}
+
+.add-set-button {
+  box-shadow: 0 1px 4px 1px #ccc;
+  background-color: rgb(0, 255, 191);
+  border: none;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 2px;
+  margin-bottom: 8px;
+  width: 100px;
+}
+
+.controls {
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.controls button {
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 0 1rem;
+  height: 40px;
+  line-height: 40px;
+  text-transform: uppercase;
+  width: 120px;
+}
+
+.delete-button {
+  background-color: rgba(255, 0, 0, 0.8);
+}
+
+.delete-button:hover {
+  background-color: rgba(255, 0, 0, 0.9);
+  cursor: pointer;
+}
+
+.update-button { 
+  background-color:rgba(8, 102, 243, 0.8);
+}
+
+.update-button:hover {
+  background-color:rgba(8, 102, 243, 0.9);
+  cursor: pointer;
+}

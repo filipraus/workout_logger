@@ -8,104 +8,112 @@ class Workout extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      workout: '',
       exercises: [],
-      workoutLoaded: false,
+      exercisesLoaded: false,
       showSelectExercise: false,
     }
   }
 
   componentDidMount() {
-    this.getOrCreateWorkout();
+    this.getExercises(this.props.workout);
+    this.setWorkoutElementHeight();
   }
 
-  getOrCreateWorkout() {
+  setWorkoutElementHeight() {
+    let calendarHeight = document.querySelector('.fc-daygrid-event-harness').offsetHeight;
+    document.querySelector('.workout').style.height = `${calendarHeight}px`;
+  }
+
+  getExercises(workout) {
     const options = {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     }
 
-    fetch(`http://127.0.0.1:8000/api/retrieve/workout/${this.props.date}`, options)
+    fetch(`http://127.0.0.1:8000/api/retrieve/${workout}/exercises`, options)
       .then(res => res.json())
       .then(res => {
-        if (res.detail == 'Not found.') {
-          this.createWorkout();
-        } else {
+        if (res.detail != 'Not found.') {
           this.setState({
-            workout: res.date,
-            exercises: res.exercises,
-            workoutLoaded: true,
-          });
+            exercises: res,
+            exercisesLoaded: true,
+          }, () => console.log(this.state.exercises));
         }
     }).catch(err => console.log(err));
   }
 
-  createWorkout() {
+  addExercise(selectedExercise) {
+    const exercise = {
+      workout: this.props.workout,
+      exercise: selectedExercise
+    }
+    
     const options = {
       method: 'POST',
-      body: JSON.stringify({date: this.props.date}),
+      body: JSON.stringify(exercise),
       headers: { 'Content-Type': 'application/json' },
     }
 
-    fetch(`http://127.0.0.1:8000/api/create/workout`, options)
+    fetch(`http://127.0.0.1:8000/api/add/exercise`, options)
       .then(res => res.json())
       .then(res => {
         this.setState({
-          workout: res.date,
-          workoutLoaded: true,
-        });
-    }).catch(err => console.log(err));
+          exercises: this.state.exercises.concat(res),
+          showSelectExercise: false,
+        }, () => console.log(this.state.exercises));
+      })
+      .catch(err => console.log(err));
   }
 
-  deleteWorkout(workout) {
+  deleteExercise(id) {
     const options = {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
     }
 
-    fetch(`http://127.0.0.1:8000/api/retrieve/workout/${workout.date}`, options)
-      .then(res => res.json())
+    fetch(`http://127.0.0.1:8000/api/delete/exercise/${id}`, options)
       .then(res => {
-        if (res.detail != 'Not found') {
-          this.setState({
-            workout: res.date,
-          }, () => console.log('Workout: ', this.state.workout));
-        }
+        this.setState({
+          exercises: this.state.exercises.filter(exercise => {
+            if (exercise.id != id) return exercise;
+          }),
+        });
     }).catch(err => console.log(err));
   }
 
-  handleExerciseAddedToWorkout(exercise) {
-    this.setState({
-      exercises: this.state.exercises.concat(exercise),
-    });
-  }
-  
-  render() {
+  renderExercises() {
     let exercises = [];
     this.state.exercises.map((exercise, index) => {
       exercises.push(
         <Exercise
           key={index + 1}
-          workout={this.state.workout}
+          workout={this.props.date}
           exercise={exercise}
+          onExerciseDeleted={(exercise) => this.deleteExercise(exercise)}
         />
       );
     });
-
+    return exercises;
+  }
+  
+  render() {  
+    console.log(this.state.exercises);
     return (
       <div className='workout'>
-        {this.state.workoutLoaded &&
+        {this.state.exercises.length > 0 && !this.state.showSelectExercise &&
           <div className='exercises'>
-            {exercises}
+            {this.renderExercises()}
           </div>
+        }
+        {!this.state.showSelectExercise && 
+          <button className='add-exercise-button'  type='button' onClick={() => this.setState({showSelectExercise: true})}>Log Exercise</button>
         }
         {this.state.showSelectExercise &&
           <SelectExercise 
-            workout={this.state.workout}
-            onExerciseAddedToWorkout={(exercise) => this.handleExerciseAddedToWorkout(exercise)}
+            workout={this.props.workout}
+            onExerciseSelected={(exercise) => this.addExercise(exercise)}
           />
         }
-        <button type='button' onClick={() => this.setState({showSelectExercise: true})}>Log Exercise</button>
       </div>
     )
   }

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics
-from .serializers import MuscleGroupListSerializer, ExerciseOptionListSerializer, WorkoutDetailSerializer, ExerciseDetailSerializer, SetDetailSerializer
+from .serializers import MuscleGroupListSerializer, ExerciseOptionListSerializer, WorkoutDetailSerializer, ExerciseDetailSerializer, SetDetailSerializer, WorkoutListSerializer
 from .models import MuscleGroup, ExerciseOption, Workout, Exercise, Set
 from django.shortcuts import get_object_or_404
 
@@ -11,6 +11,10 @@ class MuscleGroupListAPIView(generics.ListAPIView):
 class ExerciseOptionListAPIView(generics.ListAPIView):
   queryset = ExerciseOption.objects.all()
   serializer_class = ExerciseOptionListSerializer
+
+class WorkoutListAPIView(generics.ListAPIView):
+  queryset = Workout.objects.all()
+  serializer_class = WorkoutListSerializer
 
 class WorkoutRetrieveAPIView(generics.RetrieveAPIView):
   lookup_field = 'date'
@@ -26,8 +30,12 @@ class WorkoutDestroyAPIView(generics.DestroyAPIView):
   queryset = Workout.objects.all()
 
 class ExerciseListAPIView(generics.ListAPIView):
-  queryset = Exercise.objects.all()
   serializer_class = ExerciseDetailSerializer
+
+  def get_queryset(self):
+    workout = Workout.objects.get(date=self.kwargs['workout'])
+    queryset = Exercise.objects.filter(workout=workout)
+    return queryset
 
 class ExerciseRetrieveAPIView(generics.RetrieveAPIView):
   lookup_field = 'workout'
@@ -39,18 +47,21 @@ class ExerciseCreateAPIView(generics.CreateAPIView):
   serializer_class = ExerciseDetailSerializer
 
 class ExerciseRetrieveUpdateAPIView(generics.RetrieveUpdateAPIView):
-  lookup_field = 'workout'
+  lookup_field = 'id'
   queryset = Exercise.objects.all()
-  serializer_class = ExerciseDetailSerializer
 
 class ExerciseDestroyAPIView(generics.DestroyAPIView):
-  lookup_field = 'workout'
+  lookup_field = 'id'
   queryset = Exercise.objects.all()
   serializer_class = ExerciseDetailSerializer
 
 class SetsListAPIView(generics.ListAPIView):
-  queryset = Set.objects.all()
   serializer_class = SetDetailSerializer
+
+  def get_queryset(self):
+    exercise = Exercise.objects.get(id=self.kwargs['exercise'])
+    queryset = Set.objects.filter(exercise=exercise)
+    return queryset
 
 class SetsRetrieveAPIView(generics.RetrieveAPIView):
   lookup_field = 'exercise'

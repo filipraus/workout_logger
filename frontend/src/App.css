@@ -1,10 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
+  background-color: #f3f3f3;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   height: 100vh;
   text-align: center;
-  padding: 0 2rem;
   position: relative;
 }
 
@@ -14,4 +17,12 @@
 
 .App-main {
   height: calc(100vh - 80px);
+}
+
+.App-header h1 {
+  background-color: #121212;
+  color: #fff;
+  margin: 0;
+  padding: 1rem 0;
+  font-style: italic;
 }

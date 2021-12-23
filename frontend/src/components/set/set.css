@@ -1,0 +1,52 @@
+.set, .reps, .weight {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.set {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  margin: 0 2px;
+  padding: 4px;
+  transition: all 300ms;
+  width: 100%;
+}
+
+.pos {
+  width: 50px;
+}
+
+.reps, .weight {
+  border-radius: 3px;
+  width: 100px;
+}
+
+.checked {
+  width: 50px;
+}
+
+input {
+  border: none;
+  font-size: 16px;
+  text-align: center;
+  width: 40px;
+}
+
+.input-control {
+  color: #fff;
+  width: 20px;
+}
+
+.focus-set {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.focus-set .reps, .focus-set .weight {
+  background-color: #eb2d5d;
+}

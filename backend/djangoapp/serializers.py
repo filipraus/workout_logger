@@ -31,6 +31,7 @@ class SetDetailSerializer(serializers.ModelSerializer):
       'pos',
       'weight',
       'reps',
+      'checked',
     ]
     read_only_fields = ['id']
 
@@ -88,6 +89,15 @@ class WorkoutDetailSerializer(serializers.ModelSerializer):
   class Meta:
     model = Workout
     depth = 2
+    fields = [
+      'date',
+      'exercises',
+    ]
+
+class WorkoutListSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Workout
+    depth = 3
     fields = [
       'date',
       'exercises',
