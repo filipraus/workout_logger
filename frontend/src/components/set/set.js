@@ -2,6 +2,10 @@ import React from 'react';
 
 import './set.css'
 
+import IndeterminateCheckBoxIcon from '@material-ui/icons/IndeterminateCheckBox';
+import AddBoxIcon from '@material-ui/icons/AddBox';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+
 class SetInput extends React.Component {
   constructor(props) {
     super(props);
@@ -25,7 +29,9 @@ class SetInput extends React.Component {
     return (
       <div className={this.props.className}>
         {this.props.focus &&
-          <div className='input-control' onClick={() => this.decrease()}>-</div>
+          <IndeterminateCheckBoxIcon 
+            className='input-control' onClick={() => this.decrease()}
+          />
         }
         <input 
           ref={this.numberInput}
@@ -35,7 +41,9 @@ class SetInput extends React.Component {
           min={0}
         />
         {this.props.focus &&
-          <div className='input-control' onClick={() => this.increase()}>+</div>
+          <AddBoxIcon 
+            className='input-control' onClick={() => this.increase()}
+          />
         }
       </div>
     )
@@ -74,9 +82,11 @@ class Set extends React.Component {
         }
         onClick={() => this.props.onSetSelected(this.props.set)}
       >
-        <td width='30px' onClick={()=> this.props.handleDeleteSet()}>x</td>
-        <td width='50px'>{this.props.set.pos + 1}</td>
-        <td width='100px'>
+        <td width='30px' onClick={()=> this.props.handleDeleteSet()}>
+          <DeleteOutlineIcon />
+        </td>
+        <td width='30px'>{this.props.set.pos + 1}</td>
+        <td width='105px'>
           <SetInput 
             ref={this.setInputReps}
             className='reps '
@@ -85,7 +95,7 @@ class Set extends React.Component {
             onSetInputChange={() => this.handleSetInputChange()} 
           />
         </td>
-        <td width='100px'>
+        <td width='105px'>
           <SetInput 
             ref={this.setInputWeight}
             className='weight' 

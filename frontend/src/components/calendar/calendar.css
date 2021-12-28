@@ -1,3 +1,17 @@
+* {
+  box-sizing: border-box !important;
+}
+
+main {
+  /* max-width: 1200px; */
+  margin: 0 auto;
+}
+
+.calendar-wrapper {
+  max-width: 700px;
+  max-height: 700px;
+}
+
 .fc-header-toolbar {
   padding: 0 16px;
   margin: 0 !important;
@@ -56,6 +70,13 @@
   margin: 8px !important;
 }
 
+.fc-daygrid-day-frame {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+}
+
 .fc-event-main {
   display: flex;
   flex-direction: column;
@@ -63,10 +84,21 @@
 }
 
 .workout-label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   background-color: #ddd;
-  border-radius: 8px;
-  height: 42px;
-  width: 42px;
+  border-radius: 3px;
+  height: 30px;
+  width: 100%;
+}
+
+.muscle-group-label {
+  border-radius: 3px;
+  height: 5px;
+  width: 5px;
+  margin: 2px;
 }
 
 .fc-daygrid-event::before {
@@ -92,17 +124,33 @@
 .calendar-controls {
   display: flex;
   flex-direction: row;
-  padding: 8px 0 8px 16px;
+  justify-content: space-between;
+  padding: 8px 16px;
   width: 100%;
 }
 
+.calendar-controls > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 88px;
+}
+
 .calendar-controls button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   background-color: #121212;
   border: none;
   border-radius: 3px;
   color: #fff;
-  margin-right: 8px;
-  padding: 8px;
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 8px;
+  position: relative;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -124,11 +172,68 @@
 }
 
 .fc-toolbar-title {
-  padding: 8px;
+  padding: 0px 8px 8px 8px;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
 .fc-daygrid-day {
   max-height: 90px !important;
+}
+
+.fc-scrollgrid-sync-table .fc-daygrid-day .fc-daygrid-day-frame {
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.fc-scrollgrid-sync-table .fc-daygrid-day:last-child .fc-daygrid-day-frame {
+  border-right: none;
+}
+
+.fc-daygrid-day-number {
+  padding: 0;
+}
+
+.fc-daygrid-event {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.calendar-workout-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+}
+
+.calendar-workout-buttons button {
+  border: none;
+  background-color: #121212;
+  border-radius: 3px;
+  color: #fff;
+  display: none;
+  font-size: 16px;
+  padding: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+.date-highlight {
+  background-color: #bbb;
+}
+
+.workout-highlight {
+  background-color: #ffd82c;
+}
+
+@media only screen and (min-width: 700px) {
+  .fc-daygrid-day-frame {
+    padding-top: 8px !important;
+  }
 }

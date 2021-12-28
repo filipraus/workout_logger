@@ -12,6 +12,7 @@ class Workout extends React.Component {
       exercisesLoaded: false,
       showSelectExercise: false,
     }
+    this.workout = React.createRef();
   }
 
   componentDidMount() {
@@ -20,8 +21,8 @@ class Workout extends React.Component {
   }
 
   setWorkoutElementHeight() {
-    let calendarHeight = document.querySelector('.fc-daygrid-event-harness').offsetHeight;
-    document.querySelector('.workout').style.height = `${calendarHeight}px`;
+    document.querySelector('.fc-daygrid-day-frame').style['padding'] = '8px 0';
+    this.workout.current.style.height = `${document.querySelector('.fc-daygrid-day-frame').offsetHeight - 20}px`;
   }
 
   getExercises(workout) {
@@ -37,7 +38,7 @@ class Workout extends React.Component {
           this.setState({
             exercises: res,
             exercisesLoaded: true,
-          }, () => console.log(this.state.exercises));
+          });
         }
     }).catch(err => console.log(err));
   }
@@ -97,9 +98,8 @@ class Workout extends React.Component {
   }
   
   render() {  
-    console.log(this.state.exercises);
     return (
-      <div className='workout'>
+      <div ref={this.workout} className='workout' id={this.props.id}>
         {this.state.exercises.length > 0 && !this.state.showSelectExercise &&
           <div className='exercises'>
             {this.renderExercises()}

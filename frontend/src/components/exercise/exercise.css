@@ -21,14 +21,21 @@
   font-weight: bold;
   letter-spacing: 1px;
   text-align: left;
-  padding: 8px 0 4px 16px;
+  padding: 4px 0;
+}
+
+.exercise-name td {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #fff;
 }
 
 .delete-exercise-button {
-  background-color: rgba(255, 0, 0, 0.8);
+  background-color: #f3f3f3;
+  padding-left: 3px;
   border: none;
-  border-radius: 10px;
-  color: #fff;
+  color: #121212;
   font-weight: bold;
   margin-right: 8px;
 }
@@ -43,6 +50,13 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   padding: 4px 0;
+}
+
+.exercise-info td {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .exercise-info div {

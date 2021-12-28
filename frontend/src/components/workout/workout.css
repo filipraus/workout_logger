@@ -39,6 +39,10 @@
   width: 100%;
 }
 
+.delete-workout-button {
+  background-color: #fff;
+}
+
 .add-exercise-button {
   box-shadow: 1px 2px 4px 0px #ccc;
   border: none;
@@ -47,5 +51,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 8px;
+  position: absolute;
+  bottom: 0;
   margin: 8px 0;
 }

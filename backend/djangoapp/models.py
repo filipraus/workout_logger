@@ -3,6 +3,7 @@ from jsonfield import JSONField
 
 class MuscleGroup(models.Model):
   name = models.CharField(max_length=128, blank=False)
+  color = models.CharField(max_length=7, blank=True)
 
   def __str__(self):
     return self.name

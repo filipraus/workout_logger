@@ -3,6 +3,8 @@ import './exercise.css';
 
 import Set from '../set/set';
 
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+
 
 class Exercise extends React.Component {
   constructor(props) {
@@ -113,20 +115,8 @@ class Exercise extends React.Component {
     fetch(`http://127.0.0.1:8000/api/update/set/${this.state.setSelected.id}`, options)
       .then(res => res.json())
       .then(res => {
-        /* this.setState({
-          exercise: {
-            ...this.state.exercise,
-            sets: this.exercise.sets.filter(set => {
-              if (set.id == this.state.setSelect.id) {
-                return setSelected
-              }
-            })
-          }
-        }); */
-        /* this.setState({
-          setSelected: {},
-        }) */
-    }).catch(err => console.log(err));
+      
+      }).catch(err => console.log(err));
   }
 
   deleteSet(id) {
@@ -182,7 +172,6 @@ class Exercise extends React.Component {
 
     this.state.exercise.sets.map((set, index) => {
       set.pos = index;
-      console.log(set);
       sets.push(
         <Set
           ref={this.set}
@@ -205,16 +194,19 @@ class Exercise extends React.Component {
         <table className='exercise'>          
           <thead>
             <tr className='exercise-name'>
-              <td>{this.props.exercise.exercise}</td>
-              <td>
-                <button className='delete-exercise-button' type='button' onClick={() => this.props.onExerciseDeleted(this.props.exercise.id)}>X</button>
+              <td width='30px'>
+                <button className='delete-exercise-button' type='button' onClick={() => this.props.onExerciseDeleted(this.props.exercise.id)}>
+                  <DeleteOutlineIcon />
+                </button>
               </td>
+              <td>{this.props.exercise.exercise}</td> 
+              <td width='30px'></td>             
             </tr>
             <tr className='exercise-info'>
               <td width='30px'></td>
-              <td width='50px'>#</td>
-              <td width='100px'>Reps</td>
-              <td width='100px'>Weight</td>
+              <td width='30px'>#</td>
+              <td width='105px'>Reps</td>
+              <td width='105px'>Weight</td>
               <td width='30px'></td>
             </tr>
           </thead>
