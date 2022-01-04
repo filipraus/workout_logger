@@ -29,6 +29,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+""" SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'
+SECURE_SSL_REDIRECT = False
+SECURE_HSTS_SECONDS = 3600
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True """
 
 # Application definition
 
@@ -84,10 +93,21 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'workout_logger_db',
+        'USER': 'workout_logger_psql',
+        'PASSWORD': 'workout_logger_psql',
+        'HOST': 'db',
+        'PORT': 5432
+    }
+}
+
+""" DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}
+} """
 
 
 # Password validation
