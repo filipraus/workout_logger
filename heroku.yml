@@ -7,3 +7,6 @@ build:
     frontend: Dockerfile
 release:
   image: backend
+run:
+  backend: python manage.py runserver 0.0.0.0:8000
+  frontend: npm start
