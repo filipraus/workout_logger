@@ -3,7 +3,7 @@ FROM python:3.9
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /app/code
+WORKDIR /app/backend
 
 COPY Pipfile Pipfile.lock ./
 RUN pip install pipenv && pipenv install --system

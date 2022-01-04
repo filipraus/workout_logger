@@ -6,8 +6,8 @@ build:
     backend: ./backend/Dockerfile
     frontend: ./frontend/Dockerfile
 release:
-  image: backend
+  image: frontend
   command:
-    - python manage.py collectstatic --noinput
+    - npm start
 run:
   backend: gunicorn config.wsgi
