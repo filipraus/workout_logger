@@ -1,0 +1,9 @@
+setup:
+  addons:
+  - plan: heroku-postgresql
+build:
+  docker:
+    backend: Dockerfile
+    frontend: Dockerfile
+release:
+  image: backend
