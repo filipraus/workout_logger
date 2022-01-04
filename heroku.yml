@@ -6,8 +6,7 @@ build:
     backend: ./backend/Dockerfile
     frontend: ./frontend/Dockerfile
 release:
-  image: frontend
-  command:
-    - npm start
+  image: backend
 run:
   backend: gunicorn config.wsgi
+  frontend: npm start
