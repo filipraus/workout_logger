@@ -6,6 +6,6 @@ build:
     backend: ./backend/Dockerfile
     frontend: ./frontend/Dockerfile
 release:  
-  image: backend
+  image: web
 run:
   web: gunicorn config.wsgi
