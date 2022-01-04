@@ -8,5 +8,5 @@ build:
 release:
   image: backend
 run:
-  backend: python manage.py runserver 0.0.0.0:8000
+  backend: gunicorn backend.wsgi
   frontend: npm start
