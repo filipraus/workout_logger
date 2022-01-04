@@ -8,5 +8,5 @@ build:
 release:
   image: backend
 run:
-  backend: gunicorn backend.wsgi
+  backend: gunicorn config.wsgi
   frontend: npm start
