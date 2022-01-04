@@ -4,6 +4,9 @@ import './workout.css';
 import Exercise from '../exercise/exercise';
 import SelectExercise from '../selectExercise/selectExercise';
 
+import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
+import QueueIcon from '@material-ui/icons/Queue';
+
 class Workout extends React.Component {
   constructor(props) {
     super(props);
@@ -61,7 +64,7 @@ class Workout extends React.Component {
         this.setState({
           exercises: this.state.exercises.concat(res),
           showSelectExercise: false,
-        }, () => console.log(this.state.exercises));
+        });
       })
       .catch(err => console.log(err));
   }
@@ -80,6 +83,12 @@ class Workout extends React.Component {
           }),
         });
     }).catch(err => console.log(err));
+  }
+
+  showSelectExercise() {
+    this.setState({
+      showSelectExercise: true,
+    });
   }
 
   renderExercises() {
@@ -106,7 +115,19 @@ class Workout extends React.Component {
           </div>
         }
         {!this.state.showSelectExercise && 
-          <button className='add-exercise-button'  type='button' onClick={() => this.setState({showSelectExercise: true})}>Log Exercise</button>
+          <div className='workout-controls'>
+            <button 
+              className='delete-workout-button' 
+              onClick={() => this.props.deleteWorkout()}>
+                <DeleteSweepIcon />
+            </button>
+            <button 
+              className='add-exercise-button' 
+              type='button' 
+              onClick={() => this.showSelectExercise()}>
+                <QueueIcon />
+            </button>
+          </div>
         }
         {this.state.showSelectExercise &&
           <SelectExercise 

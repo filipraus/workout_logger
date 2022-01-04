@@ -4,7 +4,7 @@ import './set.css'
 
 import IndeterminateCheckBoxIcon from '@material-ui/icons/IndeterminateCheckBox';
 import AddBoxIcon from '@material-ui/icons/AddBox';
-import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 class SetInput extends React.Component {
   constructor(props) {
@@ -82,8 +82,11 @@ class Set extends React.Component {
         }
         onClick={() => this.props.onSetSelected(this.props.set)}
       >
-        <td width='30px' onClick={()=> this.props.handleDeleteSet()}>
-          <DeleteOutlineIcon />
+        
+        <td width='30px' className='delete-set-button' onClick={()=> this.props.handleDeleteSet()}>
+          {this.props.focus && 
+            <HighlightOffIcon />
+          }
         </td>
         <td width='30px'>{this.props.set.pos + 1}</td>
         <td width='105px'>
@@ -104,7 +107,7 @@ class Set extends React.Component {
             onSetInputChange={() => this.handleSetInputChange()} 
           />
         </td>
-        <td width='30px'>
+        <td width='75px'>
           <input 
             ref={this.setInputCheckbox} 
             type="checkbox" 

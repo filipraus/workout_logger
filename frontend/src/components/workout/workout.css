@@ -15,14 +15,27 @@
   justify-content: space-between;
   margin: 0 8px 0px 8px;
   overflow: hidden;
-  overflow-y: scroll;
   position: relative;
   height: 518px;  
   width: 100%;
+  overflow-y: auto;
 }
 
 .workout * {
   border: none !important;
+}
+
+.workout::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.workout::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+.workout::-webkit-scrollbar-thumb {
+  background-color: #11171a;
+  border-radius: 10px;
 }
 
 .exercises {
@@ -36,22 +49,35 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
   width: 100%;
 }
 
-.delete-workout-button {
-  background-color: #fff;
-}
-
-.add-exercise-button {
-  box-shadow: 1px 2px 4px 0px #ccc;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 8px;
+.workout-controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   position: absolute;
   bottom: 0;
-  margin: 8px 0;
+  padding: 8px;
+  width: 100%;
+}
+
+.workout-controls button {
+  box-shadow: 1px 2px 4px 0px #ccc;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 4px;
+  padding: 6px;
+}
+
+.workout-controls .delete-workout-button {
+  background-color: red;
+}
+
+.workout-controls .add-exercise-button {
+  background-color: rgb(0, 255, 191);
 }

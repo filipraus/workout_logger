@@ -7,7 +7,6 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 
 import Workout from '../workout/workout';
-import SelectExercise from '../selectExercise/selectExercise';
 
 import DateRangeIcon from '@material-ui/icons/DateRange';
 import ViewWeekIcon from '@material-ui/icons/ViewWeek';
@@ -20,10 +19,11 @@ class Calendar extends React.Component {
     this.state = {
       dateSelected: '',
       workouts: [],
+      calendarLoaded: false,
       calendarView: 'dayGridMonth',
       duration: { days: 1 },
       titleFormat: { year: 'numeric', month: 'long' },
-      calendarHeight: '500',
+      calendarHeight: '',
     }
     this.calendar = React.createRef();
   }
@@ -47,6 +47,8 @@ class Calendar extends React.Component {
         this.setState({
           workouts: res,
         });
+    }, () => {
+
     }).catch(err => console.log(err));
   }
 
@@ -63,7 +65,7 @@ class Calendar extends React.Component {
         this.setState({
           workouts: this.state.workouts.concat(res),
           workoutLoaded: true,
-        }, () => this.toggleCreateWorkoutButton());
+        });
     }).catch(err => console.log(err)); 
   }
 
@@ -83,12 +85,6 @@ class Calendar extends React.Component {
     }).catch(err => console.log(err));
   }
 
-  deleteEmptyWorkouts() {
-    this.state.workouts.filter(workout => {
-      if (workout.exercises && workout.exercises.length === 0) this.deleteWorkout(workout.date);
-    });
-  }
-
   prev() {
     const calendarAPI = this.calendar.current.getApi();
     if (this.state.calendarView === 'dayGridMonth') {
@@ -99,9 +95,6 @@ class Calendar extends React.Component {
         dateSelected: this.formatDate(calendarAPI.getDate(), 'yyyy-mm-dd'),
       });
     }
-
-    this.deleteEmptyWorkouts();
-    this.deleteOldHighlight();
   }
 
   next() {
@@ -114,33 +107,9 @@ class Calendar extends React.Component {
         dateSelected: this.formatDate(calendarAPI.getDate(), 'yyyy-mm-dd'),
       });
     }
-
-    this.deleteEmptyWorkouts();
-    this.deleteOldHighlight();
-  }
-
-  toggleCreateWorkoutButton() {
-    if (this.state.calendarView == 'dayGrid') {
-      const button = document.querySelector('.create-workout-button');
-      if (!this.workoutExists(this.state.dateSelected)) {
-        button.style.display = 'block';
-      } else {
-        button.style.display = 'none';
-      }
-    }
-  }
-
-  openDayView() {  
-    this.changeViewToWeek(this.state.dateSelected);
-  }
-
-  closeWorkout() {
-    this.changeViewToMonth();
   }
 
   changeViewToMonth() {
-    this.deleteEmptyWorkouts();
-
     this.setState({
       dateSelected: '',
       calendarView: 'dayGridMonth',
@@ -151,25 +120,18 @@ class Calendar extends React.Component {
       calendarAPI.changeView('dayGridMonth')
 
       document.querySelector('.calendar-wrapper').style['max-width'] = '700px';
-
-      this.deleteOldHighlight();
-      this.deleteEmptyWorkouts();
     })
   }
 
   changeViewToWeek() {
     if (this.state.calendarView == 'dayGridMonth') {
       this.setState({
-        workouts: this.state.workouts,
         calendarView: 'dayGrid',
         duration: this.calculateWeekDuration(),
         titleFormat: { day: '2-digit', year: 'numeric', month: 'long'},
       }, () => {
         const calendarAPI = this.calendar.current.getApi();
         calendarAPI.changeView('dayGrid', this.state.dateSelected);
-
-        this.deleteOldHighlight();
-        this.deleteEmptyWorkouts();
       });
     }
   }
@@ -201,11 +163,15 @@ class Calendar extends React.Component {
   }
 
   calculateWeekViewCalendarHeight() {
-    let subtractHeight = 0;
-    subtractHeight += document.querySelector('.App-header').offsetHeight;
-    subtractHeight += document.querySelector('.calendar-controls').offsetHeight;
-    let height = window.document.body.clientHeight - subtractHeight;
-    return (height > 700) ? 700 : height;
+    if (this.calendar.current) {   
+      let subtractHeight = 0;
+      const header = document.querySelector('.App-header');
+      const controls = document.querySelector('.calendar-controls');
+      if (header) subtractHeight += header.offsetHeight;
+      if (controls) subtractHeight += controls.offsetHeight;
+      let height = window.document.body.clientHeight - subtractHeight;
+      return (height > 700) ? 700 : height;
+    }
   }
 
   formatDate(date, format) {
@@ -221,52 +187,38 @@ class Calendar extends React.Component {
   workoutExists(date) {
     return this.state.workouts.some(workout => workout.date === date);
   }
-
-  deleteOldHighlight() {
-    const dateHighlight = document.querySelector('.date-highlight');
-    if (dateHighlight) dateHighlight.classList.remove('date-highlight');
-  }
-
-  highlightDateSelected() {
-    this.deleteOldHighlight();
-    const date = document.querySelector(`tbody [data-date='${this.state.dateSelected}']`);
-    date.classList.add('date-highlight')
-  }
   
   handleDateSelected(info) {
-
     this.setState({
       dateSelected: info.dateStr,
     }, () => {
-      if (this.workoutExists(info.dateStr)) {
-        this.handleSelectWorkout();
+      if (this.state.calendarView === 'dayGridMonth') {
+        this.changeViewToWeek();
       } else {
-        this.openDayView();
-        this.highlightDateSelected();
-        this.toggleCreateWorkoutButton();
+        this.createWorkout();
       }
     });    
   }
 
   handleSelectWorkout(date) {
-    this.deleteOldHighlight();
-
-    console.log('Select workout');
-
     this.setState({
       dateSelected: date,
     }, () => {
       if (this.state.calendarView == 'dayGridMonth') {
-        this.openDayView();
-      } else {
-        this.highlightDateSelected();
+        this.changeViewToWeek();
       }
-    })
+    });
   }
 
   renderWorkouts(info) {
     if (info.view.type == 'dayGrid') {
-      return <Workout workout={info.event.startStr} onClick={() => this.handleSelectWorkout()} />;
+      return (
+        <Workout 
+          workout={info.event.startStr} 
+          onClick={() => this.handleSelectWorkout(info.event.startStr)} 
+          deleteWorkout={() => this.deleteWorkout(info.event.startStr)} 
+        />
+      );
     } else {
       return this.renderWorkoutLabel(info);
     }
@@ -310,19 +262,6 @@ class Calendar extends React.Component {
     return labels;
   }
 
-  visibleRange() {
-    let startDate = new Date(this.state.dateSelected);
-    let endDate = new Date(this.state.dateSelected);
-    
-    startDate.setDate(startDate.getDate() - 1);
-    endDate.setDate(endDate.getDate() +1);
-
-    console.log(startDate);
-    console.log(endDate);
-
-    return {start: startDate, end: endDate};
-  }
-
   render() {
     return (
       <div>
@@ -356,8 +295,6 @@ class Calendar extends React.Component {
             height={this.state.calendarHeight}
             events={this.state.workouts}
             eventContent={(info) => this.renderWorkouts(info)}
-            dayCellDidMount={() => this.toggleCreateWorkoutButton()}
-            visibleRange={this.visibleRange()}
           />
         </div>
         {this.state.dateSelected && 

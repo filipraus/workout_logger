@@ -4,7 +4,7 @@ import './exercise.css';
 import Set from '../set/set';
 
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
-
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 
 class Exercise extends React.Component {
   constructor(props) {
@@ -131,23 +131,21 @@ class Exercise extends React.Component {
           exercise: {
             ...this.state.exercise,
             sets: this.state.exercise.sets.filter(set => {
-              console.log(set.id, this.state.setSelected.id)
               if (set.id != id) return set;
             }),
           },
           setSelected: {},
-        }, () => console.log(this.state));
+        });
     }).catch(err => console.log(err));
   }
 
   handleSetSelected(set) {
-    console.log('Set selected');
     if (this.state.setSelected.id && set.id != this.state.setSelected.id) this.updateSet();
 
     if (this.state.setSelected.id != set.id) {
       this.setState({
         setSelected: set,
-      }, () => console.log('Handle set selected... ', this.state));
+      });
     }
   }
 
@@ -159,7 +157,7 @@ class Exercise extends React.Component {
           return (oldSet.id === this.state.setSelected.id) ? set : oldSet;
         }),
       },
-    }, () => console.log(this.state))
+    })
   }
 
   focusSet(set) {
@@ -207,7 +205,7 @@ class Exercise extends React.Component {
               <td width='30px'>#</td>
               <td width='105px'>Reps</td>
               <td width='105px'>Weight</td>
-              <td width='30px'></td>
+              <td width='75px'></td>
             </tr>
           </thead>
             <tbody ref={this.sets} className='exercise-sets'>
