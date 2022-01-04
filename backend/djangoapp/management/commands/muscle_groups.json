@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Chest",
+    "color": "#ff4040"
+  },
+  {
+    "name": "Back",
+    "color": "#409fff"
+  },
+  {
+    "name": "Shoulder",
+    "color": "#9fff40"
+  },
+  {
+    "name": "Bicep",
+    "color": "#1f2d5c"
+  },
+  {
+    "name": "Tricep",
+    "color": "#a140ff"
+  },
+  {
+    "name": "Ab",
+    "color": "#ffff40"
+  },
+  {
+    "name": "Leg",
+    "color": "#ffa040"
+  },
+  {
+    "name": "Calf",
+    "color": "#ff40a0"
+  }
+]

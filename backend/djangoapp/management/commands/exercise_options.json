@@ -1,0 +1,218 @@
+[
+  {
+    "muscle_group": "Chest",
+    "name": "Flat Barbell Bench Press"
+  },
+  {
+    "muscle_group": "Chest",
+    "name": "Incline Barbell Bench Press"
+  },
+  {
+    "muscle_group": "Chest",
+    "name": "Decline Barbell Bench Press"
+  },
+  {
+    "muscle_group": "Chest",
+    "name": "Flat Dumbbell Bench Press"
+  },
+  {
+    "muscle_group": "Chest",
+    "name": "Incline Dumbbell Bench Press"
+  },
+  {
+    "muscle_group": "Chest",
+    "name": "Decline Dumbbell Bench Press"
+  },
+  {
+    "muscle_group": "Chest",
+    "name": "Hammer Press"
+  },
+  {
+    "muscle_group": "Chest",
+    "name": "Cable Cross"
+  },
+  {
+    "muscle_group": "Chest",
+    "name": "Dumbbell Flys"
+  },
+  {
+    "muscle_group": "Chest",
+    "name": "Dips"
+  },
+  {
+    "muscle_group": "Chest",
+    "name": "Push-Ups"
+  },
+  {
+    "muscle_group": "Back",
+    "name": "Deadlift"
+  },
+  {
+    "muscle_group": "Back",
+    "name": "Pull-Ups"
+  },
+  {
+    "muscle_group": "Back",
+    "name": "Chin-Ups"
+  },
+  {
+    "muscle_group": "Back",
+    "name": "Pulldowns"
+  },
+  {
+    "muscle_group": "Back",
+    "name": "Lat Pulldowns"
+  },
+  {
+    "muscle_group": "Back",
+    "name": "Barbell Bent Over Rows"
+  },
+  {
+    "muscle_group": "Back",
+    "name": "Dumbbell Bent Over Rows"
+  },
+  {
+    "muscle_group": "Back",
+    "name": "Row Machine"
+  },
+  {
+    "muscle_group": "Shoulder",
+    "name": "Military Press"
+  },
+  {
+    "muscle_group": "Shoulder",
+    "name": "Standing Dumbbell Overhead Press"
+  },
+  {
+    "muscle_group": "Shoulder",
+    "name": "Seated Dumbbell Overhead Press"
+  },
+  {
+    "muscle_group": "Shoulder",
+    "name": "Dumbbell Front Raises"
+  },
+  {
+    "muscle_group": "Shoulder",
+    "name": "Dumbbell Lateral Raises"
+  },
+  {
+    "muscle_group": "Shoulder",
+    "name": "Rear Delt Raises"
+  },
+  {
+    "muscle_group": "Shoulder",
+    "name": "Face Pulls"
+  },
+  {
+    "muscle_group": "Bicep",
+    "name": "Barbell Curls"
+  },
+  {
+    "muscle_group": "Bicep",
+    "name": "Dumbbell Curls"
+  },
+  {
+    "muscle_group": "Bicep",
+    "name": "Incline Dumbbell Curls"
+  },
+  {
+    "muscle_group": "Bicep",
+    "name": "Hammer Curls"
+  },
+  {
+    "muscle_group": "Tricep",
+    "name": "Triceps Extension"
+  },
+  {
+    "muscle_group": "Tricep",
+    "name": "Dumbbell Overhead Extension"
+  },
+  {
+    "muscle_group": "Tricep",
+    "name": "Dumbbell Kickbacks"
+  },
+  {
+    "muscle_group": "Tricep",
+    "name": "Close Grip Barbell Bench press"
+  },
+  {
+    "muscle_group": "Ab",
+    "name": "Sit-Ups"
+  },
+  {
+    "muscle_group": "Ab",
+    "name": "Hanging Knee Raises"
+  },
+  {
+    "muscle_group": "Ab",
+    "name": "Hanging Leg Raises"
+  },
+  {
+    "muscle_group": "Ab",
+    "name": "Plank"
+  },
+  {
+    "muscle_group": "Ab",
+    "name": "Decline Bench Sit-Ups"
+  },
+  {
+    "muscle_group": "Ab",
+    "name": "Ab-Wheel Roll"
+  },
+  {
+    "muscle_group": "Leg",
+    "name": "Back Squats"
+  },
+  {
+    "muscle_group": "Leg",
+    "name": "Front Squats"
+  },
+  {
+    "muscle_group": "Leg",
+    "name": "Hack Squats"
+  },
+  {
+    "muscle_group": "Leg",
+    "name": "Leg Press"
+  },
+  {
+    "muscle_group": "Leg",
+    "name": "Leg Extension"
+  },
+  {
+    "muscle_group": "Leg",
+    "name": "Barbell Lunges"
+  },
+  {
+    "muscle_group": "Leg",
+    "name": "Dumbbell Lunges"
+  },
+  {
+    "muscle_group": "Leg",
+    "name": "Standing Barbell Deadlifts"
+  },
+  {
+    "muscle_group": "Leg",
+    "name": "Romanian Deadlifts"
+  },
+  {
+    "muscle_group": "Leg",
+    "name": "Leg Curls"
+  },
+  {
+    "muscle_group": "Calf",
+    "name": "Standing Calf Raises"
+  },
+  {
+    "muscle_group": "Calf",
+    "name": "Seating Calf Raises"
+  },
+  {
+    "muscle_group": "Calf",
+    "name": "Calf Machine"
+  },
+  {
+    "muscle_group": "Calf",
+    "name": "Calf Extension"
+  }
+]
