@@ -40,7 +40,7 @@ services:
       - "3000:3000"
     stdin_open: true
     depends_on:
-      - backend
+      - web
     networks:
       - db-net
 
