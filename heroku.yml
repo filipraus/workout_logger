@@ -3,10 +3,10 @@ setup:
   - plan: heroku-postgresql
 build:
   docker:
-    backend: ./backend/Dockerfile
+    web: ./backend/Dockerfile
     frontend: ./frontend/Dockerfile
 release:
-  image: backend
+  image: web
 run:
-  backend: gunicorn config.wsgi
+  web: gunicorn config.wsgi
   frontend: npm run build && npm start
