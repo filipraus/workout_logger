@@ -6,7 +6,6 @@ todos.txt
 
 # frontend
 /frontend/node_modules
-/frontend/public
 
 /frontend/dependencies
 /frontend/node_modules
