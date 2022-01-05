@@ -9,4 +9,4 @@ release:
   image: backend
 run:
   backend: gunicorn config.wsgi
-  frontend: npm start
+  frontend: npm run build && npm start
