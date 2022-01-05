@@ -1,7 +1,8 @@
-from django.urls import path 
+from django.urls import path, re_path
 from . import views 
 
 urlpatterns = [
+  re_path(r'^', views.FrontendAppView.as_view()),
   path('api/muscle_groups_list', views.MuscleGroupListAPIView.as_view(), name='muscle_groups_list'),
   path('api/exercise_options_list', views.ExerciseOptionListAPIView.as_view(), name='exercise_options_list'),
   path('api/workouts_list', views.WorkoutListAPIView.as_view(), name='workouts_list'),
