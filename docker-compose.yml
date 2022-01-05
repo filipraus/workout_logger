@@ -31,7 +31,7 @@ services:
     
   frontend:
     restart: always
-    command : npm start
+    command : npm run build && npm start
     build:
       context: ./frontend/
       dockerfile: Dockerfile
