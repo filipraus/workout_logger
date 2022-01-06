@@ -18,7 +18,7 @@ import dj_database_url
 import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -78,7 +78,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'frontend')],
+        'DIRS': [os.path.join(BASE_DIR, '../../frontend')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -155,10 +155,10 @@ USE_TZ = True
 django_heroku.settings(locals())
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'backend/staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-REACT_APP_DIR = os.path.join(BASE_DIR, 'frontend')
+REACT_APP_DIR = os.path.join(BASE_DIR, '../frontend')
 STATICFILES_DIRS = (
     os.path.join(REACT_APP_DIR, 'build', 'static'),   
 )
