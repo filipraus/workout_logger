@@ -34,7 +34,7 @@ services:
     command : bash -c "npm run build && 
                        npm start"
     build:
-      context: ./frontend/
+      context: .backend/frontend/
       dockerfile: Dockerfile
     ports:
       - "3000:3000"

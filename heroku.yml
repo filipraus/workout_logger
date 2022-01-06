@@ -8,5 +8,5 @@ build:
 release:
   image: web
 run:
-  web: gunicorn config.wsgi
+  web: gunicorn config.wsgi && python manage.py collectstatic
   frontend: npm run build && npm start
