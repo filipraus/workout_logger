@@ -41,7 +41,7 @@ class Calendar extends React.Component {
       headers: { 'Content-Type': 'application/json' },
     }
 
-    fetch(`http://127.0.0.1:8000/api/workouts_list`, options)
+    fetch(`/api/workouts_list`, options)
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -59,7 +59,7 @@ class Calendar extends React.Component {
       headers: { 'Content-Type': 'application/json' },
     }
 
-    fetch(`http://127.0.0.1:8000/api/create/workout`, options)
+    fetch(`/api/create/workout`, options)
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -75,7 +75,7 @@ class Calendar extends React.Component {
       headers: { 'Content-Type': 'application/json' },
     }
 
-    fetch(`http://127.0.0.1:8000/api/delete/workout/${date}`, options)
+    fetch(`/api/delete/workout/${date}`, options)
       .then(res => {
         this.setState({
           workouts: this.state.workouts.filter(workout => {
