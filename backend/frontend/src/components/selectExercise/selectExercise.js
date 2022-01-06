@@ -17,7 +17,7 @@ class SelectExercise extends React.Component {
   }
 
   getMuscleGroups() {
-    fetch("http://127.0.0.1:8000/api/muscle_groups_list")
+    fetch("/api/muscle_groups_list")
       .then(response => response.json())
       .then(res => {
         this.setState({
@@ -28,7 +28,7 @@ class SelectExercise extends React.Component {
   }
 
   getExerciseOptions() {
-    fetch("http://127.0.0.1:8000/api/exercise_options_list")
+    fetch("/api/exercise_options_list")
       .then(response => response.json())
       .then(res => {
         this.setState({

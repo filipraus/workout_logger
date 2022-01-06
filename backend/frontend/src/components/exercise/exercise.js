@@ -52,7 +52,7 @@ class Exercise extends React.Component {
       headers: { 'Content-Type': 'application/json' },
     }
 
-    fetch(`http://127.0.0.1:8000/api/retrieve/${this.props.exercise.id}/sets`, options)
+    fetch(`/api/retrieve/${this.props.exercise.id}/sets`, options)
       .then(res => res.json())
       .then(res => {
         if (res.detail != 'Not found.') {
@@ -78,7 +78,7 @@ class Exercise extends React.Component {
       headers: { 'Content-Type': 'application/json' },
     }
 
-    fetch(`http://127.0.0.1:8000/api/add/set`, options)
+    fetch(`/api/add/set`, options)
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -112,7 +112,7 @@ class Exercise extends React.Component {
       headers: { 'Content-Type': 'application/json' },
     }
 
-    fetch(`http://127.0.0.1:8000/api/update/set/${this.state.setSelected.id}`, options)
+    fetch(`/api/update/set/${this.state.setSelected.id}`, options)
       .then(res => res.json())
       .then(res => {
       
@@ -125,7 +125,7 @@ class Exercise extends React.Component {
       headers: { 'Content-Type': 'application/json' },
     }
 
-    fetch(`http://127.0.0.1:8000/api/delete/set/${id}`, options)
+    fetch(`/api/delete/set/${id}`, options)
       .then(res => {
         this.setState({
           exercise: {

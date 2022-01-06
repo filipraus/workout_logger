@@ -34,7 +34,7 @@ class Workout extends React.Component {
       headers: { 'Content-Type': 'application/json' },
     }
 
-    fetch(`http://127.0.0.1:8000/api/retrieve/${workout}/exercises`, options)
+    fetch(`/api/retrieve/${workout}/exercises`, options)
       .then(res => res.json())
       .then(res => {
         if (res.detail != 'Not found.') {
@@ -58,7 +58,7 @@ class Workout extends React.Component {
       headers: { 'Content-Type': 'application/json' },
     }
 
-    fetch(`http://127.0.0.1:8000/api/add/exercise`, options)
+    fetch(`/api/add/exercise`, options)
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -75,7 +75,7 @@ class Workout extends React.Component {
       headers: { 'Content-Type': 'application/json' },
     }
 
-    fetch(`http://127.0.0.1:8000/api/delete/exercise/${id}`, options)
+    fetch(`/api/delete/exercise/${id}`, options)
       .then(res => {
         this.setState({
           exercises: this.state.exercises.filter(exercise => {
