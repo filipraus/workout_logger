@@ -16,7 +16,7 @@ todos.txt
 /backend/frontend/coverage
 
 # production
-/backend/frontend/build
+# /backend/frontend/build
 
 # misc
 /backend/frontend/.DS_Store
