@@ -188,7 +188,7 @@ class Exercise extends React.Component {
 
   render() {
     return (
-      <div className='exercise-wrapper'>
+      <>
         <table className='exercise'>          
           <thead>
             <tr className='exercise-name'>
@@ -215,7 +215,7 @@ class Exercise extends React.Component {
             </tbody>
         </table>
         <button className='add-set-button' type='button' onClick={() => this.addSet()}>+</button>
-      </div>
+      </>
     )
   }
 }

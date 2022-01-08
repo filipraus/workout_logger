@@ -115,11 +115,13 @@ class Workout extends React.Component {
   render() {  
     return (
       <div ref={this.workout} className='workout' id={this.props.id}>
-        {this.state.exercises.length > 0 && !this.state.showSelectExercise &&
-          <div className='exercises'>
-            {this.renderExercises()}
-          </div>
-        }
+        <div className='exercises'>
+          {this.state.exercises.length > 0 && !this.state.showSelectExercise &&
+            <div className='exercises'>
+              {this.renderExercises()}
+            </div>
+          }
+        </div>
         {!this.state.showSelectExercise && 
           <div className='workout-controls'>
             <button 
