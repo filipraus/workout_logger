@@ -105,6 +105,12 @@ class Workout extends React.Component {
     });
     return exercises;
   }
+
+  handleHideSelectExercise() {
+    this.setState({
+      showSelectExercise: false,
+    });
+  }
   
   render() {  
     return (
@@ -117,14 +123,17 @@ class Workout extends React.Component {
         {!this.state.showSelectExercise && 
           <div className='workout-controls'>
             <button 
+              type='button'
               className='delete-workout-button' 
-              onClick={() => this.props.deleteWorkout()}>
+              onClick={() => this.props.deleteWorkout()}
+            >
                 <DeleteSweepIcon />
             </button>
             <button 
-              className='add-exercise-button' 
               type='button' 
-              onClick={() => this.showSelectExercise()}>
+              className='add-exercise-button' 
+              onClick={() => this.showSelectExercise()}
+            >
                 <QueueIcon />
             </button>
           </div>
@@ -133,6 +142,7 @@ class Workout extends React.Component {
           <SelectExercise 
             workout={this.props.workout}
             onExerciseSelected={(exercise) => this.addExercise(exercise)}
+            hideSelectExercise={() => this.handleHideSelectExercise()}
           />
         }
       </div>

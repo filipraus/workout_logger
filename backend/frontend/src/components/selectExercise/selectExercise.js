@@ -8,12 +8,17 @@ class SelectExercise extends React.Component {
     this.state = {
       muscleGroups: [],
       exerciseOptions: [],
+      show: false,
     };
   }
 
   componentDidMount() {
     this.getMuscleGroups();
     this.getExerciseOptions();
+
+    this.setState({
+      show: true,
+    });
   }
 
   getMuscleGroups() {
@@ -37,29 +42,45 @@ class SelectExercise extends React.Component {
       }
     );
   }
+  
+  closeSelectExercise() {
+    this.setState({
+      show: false,
+    });
+  }
 
   render() {
+    console.log(this.props);
     return (
       <div className='select-exercise'>
-        {this.state.muscleGroups.map((muscleGroup, index) => {
-          return (
-            <details key={index}>
-              <summary>{muscleGroup.name}</summary>
-              {this.state.exerciseOptions.map((exerciseOption, index) => {
-                if (exerciseOption.muscle_group == muscleGroup.id) {
-                  return (
-                    <div 
-                      key={index} 
-                      onClick={() => this.props.onExerciseSelected(exerciseOption.name)}
-                    >
-                      {exerciseOption.name}
-                    </div>
-                  )
-                }
-              })}
-            </details>
-          )
-        })}
+        <div className='muscle-groups-list'>
+          {this.state.muscleGroups.map((muscleGroup, index) => {
+            return (
+              <details key={index}>
+                <summary>{muscleGroup.name}</summary>
+                {this.state.exerciseOptions.map((exerciseOption, index) => {
+                  if (exerciseOption.muscle_group == muscleGroup.id) {
+                    return (
+                      <div 
+                        key={index} 
+                        onClick={() => this.props.onExerciseSelected(exerciseOption.name)}
+                      >
+                        {exerciseOption.name}
+                      </div>
+                    )
+                  }
+                })}
+              </details>
+            )
+          })}
+        </div>
+        <button 
+          type='button' 
+          className='hide-select-exercise-button'
+          onClick={() => this.props.hideSelectExercise()}
+        >
+            Close
+        </button>
       </div>
     )
   }
