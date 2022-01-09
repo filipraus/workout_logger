@@ -84,7 +84,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'frontend', 'build')],
+        'DIRS': [os.path.join(BASE_DIR, 'reactapp', 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -160,7 +160,7 @@ USE_TZ = True
 
 django_heroku.settings(locals())
 
-REACT_APP_DIR = os.path.join(BASE_DIR, 'frontend')
+REACT_APP_DIR = os.path.join(BASE_DIR, 'reactapp')
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(REACT_APP_DIR, 'build', 'static')

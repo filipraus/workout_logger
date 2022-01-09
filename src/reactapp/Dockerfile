@@ -1,5 +1,5 @@
 FROM node:14.18.1
-WORKDIR /app/backend/frontend
+WORKDIR /app/src/reactapp
 
 COPY package.json package-lock.json ./
 RUN npm install

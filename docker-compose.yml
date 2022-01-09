@@ -20,7 +20,7 @@ services:
     # command : bash -c "python manage.py migrate &&
       #                 python manage.py runserver 0.0.0.0:8000"
     build:
-      context: ./backend/
+      context: ./src/
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
@@ -29,12 +29,12 @@ services:
     networks:
       - db-net
     
-  frontend:
+  reactapp:
     restart: always
     command : bash -c "npm run build 
     # && npm start"
     build:
-      context: .backend/frontend/
+      context: .src/reactapp/
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
