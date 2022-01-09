@@ -33,26 +33,44 @@ This project might as well prove that I will have an opportunity to work, or at 
 This chapter will be updated with each new version. The steps below will guide you through all of the current functionality. It is robustly builded so it might feel a little bit clunky, there are definitely improvements that can be done.
 
 The goal was to create the basic CRUD functionality of a workout logger by utilizing a 3rd party calendar with which users can interact. The current version does not have Django authentication implemented which means that everyone will be interacting with the same calendar.
-
+<details>
+  <summary>Step 1</summary>
 ![](/user_manual_screenshots/wg01.png)
-
+</details>
+<details>
+  <summary>Step 2</summary>
 ![](/user_manual_screenshots/wg02.png)
-
+</details>
+<details>
+  <summary>Step 3 </summary>
 ![](/user_manual_screenshots/wg03.png)
-
+</details>
+<details>
+  <summary>Step 4 </summar>
 ![](/user_manual_screenshots/wg04.png)
-
+</details>
+<details>
+  <summary>Step 5</summary>
 ![](/user_manual_screenshots/wg05.png)
-
+</details>
+<details>
+  <summary>Step 6</summary>
 ![](/user_manual_screenshots/wg06.png)
-
+</details> 
+<details>
+  <summary>Step 7</summary>
 ![](/user_manual_screenshots/wg07.png)
-
+</details>
+<details>
+  <summary>Step 8</summary>
 ![](/user_manual_screenshots/wg08.png)
-
+</details>
+  
 ## 4. Technical Implementation
 
-Coming from Vanilla JavaScript and MVC design pattern, React makes things even more clear when dealing with continuously increasing size of the codebase.
+Tech stack: Django, Django REST API framework, React (classes) + FullCalendar (3rd party JavaScript calendar library), CSS, Git, Docker, Heroku, 
+
+Coming from Vanilla JavaScript and MVC design pattern, React makes things even clearer when dealing with continuously increasing size of the codebase.
 
 Right now, I got the hang of only one part of it, namely the React class-components approach. I already have plans for refactoring the app to use React Hooks with functional components. After which I will most likely also refactor it to use TypeScript. No later than version 1.0.0.
 
@@ -62,17 +80,19 @@ As you can imagine, this is going to be a long and slow process where I will hav
 
 Here are some screenshots to get familiar with the project structure and the organization of components. I recommend trying to imagine how all of the things are connected and then going through the source code.
 
+<details>
+  <summary>Project structure and components</summary>
 ![](/user_manual_screenshots/file_structure.png)   ![](/user_manual_screenshots/react_components.png)
-
+</details>
+  
 ## 5. Conclusion
 All in all, this project has a lot of work left to be done, at the moment it feels quite clunky and the UI/UX is not perfect. But my goal is to build a large robust application by continuously diving deeper into many different technologies, such as Django, Django REST API, Python Dash, React (with Classes and with Hooks and functional components), React Native, TypeScript, Git, Docker, Heroku, among others.
 
-<details>
-  <summary>## 6. Todos</summary>
+## 6. Todos 
 [ ] add Django auth (either stock Django auth, or Django REST API framework’s Oauth2)
 [ ] add new pages for user authentication, user settings, user preferences, user workout statistics, documentation, etc (opportunity to utilize React Routers and Python Dash for data visualization)
 [ ] refactor the codebase to React Hooks and functional components
 [ ] refactor the codebase to React + TypeScript
+[ ] write tests with React Testing Library
 [ ] continuously fix any newly found bugs
 [ ] create data visualization/statistics page with Python Dash
-  </details>
