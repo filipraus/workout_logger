@@ -81,6 +81,8 @@ Here are some screenshots to get familiar with the project structure and the org
 ## 4. Conclusion
 All in all, this project has a lot of work left to be done, at the moment it feels quite clunky and the UI/UX is not perfect. But my goal is to build a large robust application by continuously diving deeper into many different technologies, such as Django, Django REST API, Python Dash, React (with Classes and with Hooks and functional components), React Native, TypeScript, Git, Docker, Heroku, among others.
 
+When it starts including more features and when a mobile version is created, perhaps it will make more sense to polish out the details,. Until then, the development will have the priority over UI/UX designs.
+
 ## 5. Todos 
 
 [ ] add Django auth (either stock Django auth, or Django REST API framework’s Oauth2)
