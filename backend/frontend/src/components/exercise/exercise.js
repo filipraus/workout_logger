@@ -139,6 +139,11 @@ class Exercise extends React.Component {
     }).catch(err => console.log(err));
   }
 
+  focusSet(set) {
+    if (this.state.setSelected != null && 
+      set.id == this.state.setSelected.id) return true;
+  }
+
   handleSetSelected(set) {
     if (this.state.setSelected.id && set.id != this.state.setSelected.id) this.updateSet();
 
@@ -158,11 +163,6 @@ class Exercise extends React.Component {
         }),
       },
     })
-  }
-
-  focusSet(set) {
-    if (this.state.setSelected != null && 
-      set.id == this.state.setSelected.id) return true;
   }
 
   renderSets() {

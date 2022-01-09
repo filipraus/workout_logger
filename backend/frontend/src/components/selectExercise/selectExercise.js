@@ -49,30 +49,41 @@ class SelectExercise extends React.Component {
     });
   }
 
+  renderMuscleGroups() {
+    let muscleGroups = [];
+    this.state.muscleGroups.map((muscleGroup, index) => {
+      muscleGroups.push(
+        <details key={index}>
+          <summary>{muscleGroup.name}</summary>
+          {this.renderExerciseOptions(muscleGroup)}
+        </details>
+      );
+    })
+    return muscleGroups;
+  }
+
+  renderExerciseOptions(muscleGroup) {
+    let exerciseOptions = [];
+    this.state.exerciseOptions.map((exerciseOption, index) => {
+      if (exerciseOption.muscle_group == muscleGroup.id) {
+        exerciseOptions.push(
+          <div 
+            key={index} 
+            onClick={() => this.props.onExerciseSelected(exerciseOption.name)}
+          >
+            {exerciseOption.name}
+          </div>
+        )
+      }
+    })
+    return exerciseOptions;
+  }
+
   render() {
-    console.log(this.props);
     return (
       <div className='select-exercise'>
         <div className='muscle-groups-list'>
-          {this.state.muscleGroups.map((muscleGroup, index) => {
-            return (
-              <details key={index}>
-                <summary>{muscleGroup.name}</summary>
-                {this.state.exerciseOptions.map((exerciseOption, index) => {
-                  if (exerciseOption.muscle_group == muscleGroup.id) {
-                    return (
-                      <div 
-                        key={index} 
-                        onClick={() => this.props.onExerciseSelected(exerciseOption.name)}
-                      >
-                        {exerciseOption.name}
-                      </div>
-                    )
-                  }
-                })}
-              </details>
-            )
-          })}
+          {this.renderMuscleGroups()}
         </div>
         <button 
           type='button' 

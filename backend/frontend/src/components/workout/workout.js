@@ -23,6 +23,12 @@ class Workout extends React.Component {
     this.setWorkoutElementHeight();
   }
 
+  handleHideSelectExercise() {
+    this.setState({
+      showSelectExercise: false,
+    });
+  }
+
   setWorkoutElementHeight() {
     document.querySelector('.fc-daygrid-day-frame').style['padding'] = '8px 0';
     this.workout.current.style.height = `${document.querySelector('.fc-daygrid-day-frame').offsetHeight - 20}px`;
@@ -105,21 +111,13 @@ class Workout extends React.Component {
     });
     return exercises;
   }
-
-  handleHideSelectExercise() {
-    this.setState({
-      showSelectExercise: false,
-    });
-  }
   
   render() {  
     return (
       <div ref={this.workout} className='workout' id={this.props.id}>
         <div className='exercises'>
           {this.state.exercises.length > 0 && !this.state.showSelectExercise &&
-            <div className='exercises'>
-              {this.renderExercises()}
-            </div>
+            this.renderExercises()
           }
         </div>
         {!this.state.showSelectExercise && 
