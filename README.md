@@ -90,7 +90,7 @@ When it starts including more features and when a mobile version is created, per
 
 ## 5. Todos 
 
-[ ] add Django auth (either stock Django auth, or Django REST API framework’s Oauth2)
+[ ] add Django auth (either stock Django auth, django-auth, or Django REST API framework’s OAuth2)
 
 [ ] add new pages for user authentication, user settings, user preferences, user workout statistics, documentation, etc (opportunity to utilize React Routers and Python Dash for data visualization)
 
