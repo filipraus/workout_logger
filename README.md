@@ -3,11 +3,16 @@
 ## Table of Contents
 
 [Preface](##-preface)
-[1. Introduction](##-1.-introduction)
-[2. User Manual](##-2.-user-manual)
-[3. Technical Implementation](##-3.-technical-implementation)
-[4. Conclusion](##-4.-conclusion)
-[5. Todos](##-5.-todos)
+
+[1. Introduction](##1.-introduction)
+
+[2. User Manual](##2.-user-manual)
+
+[3. Technical Implementation](##3.-technical-implementation)
+
+[4. Conclusion](##4.-conclusion)
+
+[5. Todos](##5.-todos)
 
 ## Preface
 
