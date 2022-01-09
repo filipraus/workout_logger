@@ -46,7 +46,7 @@ The goal was to create the basic CRUD functionality of a workout logger by utili
 ![](/user_manual_screenshots/wg03.png)
 </details>
 <details>
-  <summary>Step 4 </summar>
+  <summary>Step 4 </summary>
 ![](/user_manual_screenshots/wg04.png)
 </details>
 <details>
