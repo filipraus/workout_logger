@@ -46,21 +46,21 @@ This chapter will be updated with each new version. The steps below will guide y
 
 The goal was to create the basic CRUD functionality of a workout logger by utilizing a 3rd party calendar with which users can interact. The current version does not have Django authentication implemented which means that everyone will be interacting with the same calendar.
 
-![](/user_manual_screenshots/wg01.png)
+![](/screenshots/wg01.png)
   
-![](/user_manual_screenshots/wg02.png)
+![](/screenshots/wg02.png)
   
-![](/user_manual_screenshots/wg03.png)
+![](/screenshots/wg03.png)
   
-![](/user_manual_screenshots/wg04.png)
+![](/screenshots/wg04.png)
   
-![](/user_manual_screenshots/wg05.png)
+![](/screenshots/wg05.png)
   
-![](/user_manual_screenshots/wg06.png)
+![](/screenshots/wg06.png)
   
-![](/user_manual_screenshots/wg07.png)
+![](/screenshots/wg07.png)
   
-![](/user_manual_screenshots/wg08.png)
+![](/screenshots/wg08.png)
   
 ## 3. Technical Implementation
 
@@ -76,7 +76,7 @@ As you can imagine, this is going to be a long and slow process where I will hav
 
 Here are some screenshots to get familiar with the project structure and the organization of components. I recommend trying to imagine how all of the things are connected and then going through the source code.
 
-![](/user_manual_screenshots/file_structure.png)   ![](/user_manual_screenshots/react_components.png)
+![](/screenshots/file_structure.png)   ![](/screenshots/react_components.png)
   
 ## 4. Conclusion
 All in all, this project has a lot of work left to be done, at the moment it feels quite clunky and the UI/UX is not perfect. But my goal is to build a large robust application by continuously diving deeper into many different technologies, such as Django, Django REST API, Python Dash, React (with Classes and with Hooks and functional components), React Native, TypeScript, Git, Docker, Heroku, among others.
