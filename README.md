@@ -1,12 +1,10 @@
 # **Workout Logger 0.1.0**
 
-1.
-## Preface
+## 1. Preface
 
 In my past projects, I mostly stuck to using Django with Vanilla/Plain JavaScript (following a Model-View-Controller design pattern). Now, when I think I got the fundamentals down, I decided to dive deeper into what Python and JavaScript have to offer. Hence why I decided to build this web application using Django REST API and React frameworks. Both are very large frameworks that offer a multitude of ways for doing things. This will require more time and an application that can be sensically large enough to try as many things as possible.
 
-2.
-## Introduction
+## 2. Introduction
 
 A workout logger is very similar to a todo app. Users can do all of the CRUD operations. But the main difference is that one is used for logging data regarding the physical energy output (in the sense of how often and how intensely you exercise) and the other for productive output (in the sense of getting things done). I find that there is quite a bit more nuance when it comes to measuring physical energy output since the output will highly depend on your body composition, age, predispositions or disabilities.
 
@@ -30,8 +28,7 @@ But the possibilities here are very large, especially as IoT is becoming more an
 
 This project might as well prove that I will have an opportunity to work, or at least dabble, with embedded programming, data engineering and machine learning, at some point down the road, at which there will most likely already exist commercial products that fulfill this vision. Nevertheless, having an open source version won&#39;t hurt the market and it will only push up the lower boundary for the commercial quality of similar applications.
 
-3.
-## User Manual
+## 3. User Manual
 
 This chapter will be updated with each new version. The steps below will guide you through all of the current functionality. It is robustly builded so it might feel a little bit clunky, there are definitely improvements that can be done.
 
@@ -53,8 +50,7 @@ The goal was to create the basic CRUD functionality of a workout logger by utili
 
 ![](/user_manual_screenshots/wg08.png)
 
-4.
-## Technical Implementation
+## 4. Technical Implementation
 
 Coming from Vanilla JavaScript and MVC design pattern, React makes things even more clear when dealing with continuously increasing size of the codebase.
 
@@ -68,5 +64,4 @@ Here are some screenshots to get familiar with the project structure and the org
 
 ![](/user_manual_screenshots/file_structure.png)   ![](/user_manual_screenshots/react_components.png)
 
-5.
-## Conclusion
+## 5. Conclusion
