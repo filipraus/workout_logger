@@ -64,7 +64,7 @@ The goal was to create the basic CRUD functionality of a workout logger by utili
   
 ## 3. Technical Implementation
 
-Tech stack: Django, Django REST API framework, React (classes) + FullCalendar (3rd party JavaScript calendar library), CSS, Git, Docker, Heroku, 
+Tech stack: Django, Django REST API framework, React (classes) + FullCalendar (3rd party JavaScript calendar library), CSS, Git, Docker, Heroku.
 
 Coming from Vanilla JavaScript and MVC design pattern, React makes things even clearer when dealing with continuously increasing size of the codebase.
 
@@ -96,5 +96,7 @@ All in all, this project has a lot of work left to be done, at the moment it fee
 [ ] continuously fix any newly found bugs
 
 [ ] create data visualization/statistics page with Python Dash
+
+[ ] expand and update "User Manual" and "Technical Implementation" sections
 
 [ ] add "Installation" section to the README.md explaining how to install the app locally
