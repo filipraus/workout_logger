@@ -1,22 +1,20 @@
 # **Workout Logger 0.1.0**
 
+## Preface
+
+In my past projects, I mostly stuck to using Django with Vanilla/Plain JavaScript (following a Model-View-Controller design pattern). Now, when I think I got the fundamentals down, I decided to dive deeper into what Python and JavaScript have to offer. Hence why I decided to build this web application using Django REST API and React frameworks. Both are very large frameworks that offer a multitude of ways for doing things. This will require more time and an application that can be sensically large enough to try as many things as possible.
+
 ## Table of Contents
 
-[Preface](##-preface)
+[1. Introduction](#-1.-introduction)
 
-[1. Introduction](##1.-introduction)
+[2. User Manual](#-2.-user-manual)
 
-[2. User Manual](##2.-user-manual)
-
-[3. Technical Implementation](##3.-technical-implementation)
+[3. Technical Implementation](#-3.-technical-implementation)
 
 [4. Conclusion](##4.-conclusion)
 
 [5. Todos](##5.-todos)
-
-## Preface
-
-In my past projects, I mostly stuck to using Django with Vanilla/Plain JavaScript (following a Model-View-Controller design pattern). Now, when I think I got the fundamentals down, I decided to dive deeper into what Python and JavaScript have to offer. Hence why I decided to build this web application using Django REST API and React frameworks. Both are very large frameworks that offer a multitude of ways for doing things. This will require more time and an application that can be sensically large enough to try as many things as possible.
 
 ## 1. Introduction
 
@@ -84,11 +82,19 @@ Here are some screenshots to get familiar with the project structure and the org
 All in all, this project has a lot of work left to be done, at the moment it feels quite clunky and the UI/UX is not perfect. But my goal is to build a large robust application by continuously diving deeper into many different technologies, such as Django, Django REST API, Python Dash, React (with Classes and with Hooks and functional components), React Native, TypeScript, Git, Docker, Heroku, among others.
 
 ## 5. Todos 
+
 [ ] add Django auth (either stock Django auth, or Django REST API framework’s Oauth2)
+
 [ ] add new pages for user authentication, user settings, user preferences, user workout statistics, documentation, etc (opportunity to utilize React Routers and Python Dash for data visualization)
+
 [ ] refactor the codebase to React Hooks and functional components
+
 [ ] refactor the codebase to React + TypeScript
+
 [ ] write tests with React Testing Library
+
 [ ] continuously fix any newly found bugs
+
 [ ] create data visualization/statistics page with Python Dash
+
 [ ] add "Installation" section to the README.md explaining how to install the app locally
