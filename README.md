@@ -34,6 +34,11 @@ Some of the variables that Smart Workout should take into account for each indiv
 - Workout and exercise intensity - the rate at which workouts and exercises are performed.
 - Recovery periods between workouts and exercises - how much time passes between the last and the next workout or exercise.
 
+Some other variables that would require integration with 3rd party apps and systems are:
+- Diet quality, caloric intake, macro- and micronutrient ratios, and all their historical data
+- Daily physical activites, historical data of physical activity
+- Sleep quality, historical data of sleep quality
+
 The data logged into Workout Logger would be pipelined into Smart Workout and it would probably take at least a few weeks to create an approximation of the optimal workout regime. For new users it could give a potentially most optimal workout based on past data that was logged by other users with similar goals and anatomies.
 
 But the possibilities here are very large, especially as IoT is becoming more and more built into our lives. We already have smart watches that can track with high accuracy your physical activity, heart rate, energy levels, and even blood sugar levels. We will come to a point where all the fitness data is automatically logged and you will immediately know what is the next thing you need to do to reach your fitness goals sooner and more effectively.
