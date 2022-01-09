@@ -65,3 +65,14 @@ Here are some screenshots to get familiar with the project structure and the org
 ![](/user_manual_screenshots/file_structure.png)   ![](/user_manual_screenshots/react_components.png)
 
 ## 5. Conclusion
+All in all, this project has a lot of work left to be done, at the moment it feels quite clunky and the UI/UX is not perfect. But my goal is to build a large robust application by continuously diving deeper into many different technologies, such as Django, Django REST API, Python Dash, React (with Classes and with Hooks and functional components), React Native, TypeScript, Git, Docker, Heroku, among others.
+
+<details>
+  <summary>## 6. Todos</summary>
+[ ] add Django auth (either stock Django auth, or Django REST API framework’s Oauth2)
+[ ] add new pages for user authentication, user settings, user preferences, user workout statistics, documentation, etc (opportunity to utilize React Routers and Python Dash for data visualization)
+[ ] refactor the codebase to React Hooks and functional components
+[ ] refactor the codebase to React + TypeScript
+[ ] continuously fix any newly found bugs
+[ ] create data visualization/statistics page with Python Dash
+  </details>
