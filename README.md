@@ -2,7 +2,7 @@
 
 ## Preface
 
-In my past projects, I mostly stuck to using Django with Vanilla/Plain JavaScript (following a Model-View-Controller design pattern). Now, when I think I got the fundamentals down, I decided to dive deeper into what Python and JavaScript have to offer. Hence why I decided to build this web application using Django REST API and React frameworks. Both are very large frameworks that offer a multitude of ways for doing things. This will require more time and an application that can be sensically large enough to try as many things as possible.
+In my past projects I mostly stuck to using Django with Vanilla/Plain JavaScript (following a Model-View-Controller design pattern). Now, when I think I got the fundamentals down, I decided to dive deeper into what Python and JavaScript have to offer. Hence why I decided to build this web application using Django REST API and React frameworks. Both are very large frameworks that offer a multitude of ways for doing things. This will require more time and an application that can be sensically large enough to try as many things as possible.
 
 ## Table of Contents
 
@@ -91,6 +91,9 @@ All in all, this project has a lot of work left to be done, at the moment it fee
 When it starts including more features and when a mobile version is created, perhaps it will make more sense to polish out the details,. Until then, the development will have the priority over UI/UX designs.
 
 ## 5. Todos 
+
+[ ] refactor workout rendering (atm when one workout is updated on exercise level, all workouts rerender)
+    [ ] place workots on top of gridcells of their dates, not inside of them, use DOM element offset to position them correctly to be on the top (this will avoid the rerendering of all workouts)
 
 [ ] add Django auth (either stock Django auth, django-auth, or Django REST API framework’s OAuth2)
 
