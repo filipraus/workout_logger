@@ -1,8 +1,6 @@
 # **Workout Logger 0.1.0**
 
-# Live version:
-
-## https://myworkoutlogger.herokuapp.com/
+## Live version: https://myworkoutlogger.herokuapp.com/
 
 ## Preface
 
