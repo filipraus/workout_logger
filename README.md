@@ -95,7 +95,8 @@ When it starts including more features and when a mobile version is created, per
 ## 5. Todos 
 
 [ ] refactor workout rendering (atm when one workout is updated on exercise level, all workouts rerender)
-    [ ] place workots on top of gridcells of their dates, not inside of them, use DOM element offset to position them correctly to be on the top (this will avoid the rerendering of all workouts)
+  
+[ ] place workots on top of gridcells of their dates, not inside of them, use DOM element offset to position them correctly to be on the top (this will avoid the rerendering of all workouts)
 
 [ ] add Django auth (either stock Django auth, django-auth, or Django REST API framework’s OAuth2)
 
