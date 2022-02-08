@@ -1,5 +1,9 @@
 # **Workout Logger 0.1.0**
 
+# Live version:
+
+## https://myworkoutlogger.herokuapp.com/
+
 ## Preface
 
 In my past projects I mostly stuck to using Django with Vanilla/Plain JavaScript (following a Model-View-Controller design pattern). Now, when I think I got the fundamentals down, I decided to dive deeper into what Python and JavaScript have to offer. Hence why I decided to build this web application using Django REST API and React frameworks. Both are very large frameworks that offer a multitude of ways for doing things. This will require more time and an application that can be sensically large enough to try as many things as possible.
@@ -50,8 +54,6 @@ This project might as well prove that I will have an opportunity to work, or at 
 This chapter will be updated with each new version. The steps below will guide you through all of the current functionality. It is robustly builded so it might feel a little bit clunky, there are definitely improvements that can be done.
 
 The goal was to create the basic CRUD functionality of a workout logger by utilizing a 3rd party calendar with which users can interact. The current version does not have Django authentication implemented which means that everyone will be interacting with the same calendar.
-
-Live: https://myworkoutlogger.herokuapp.com/
 
 ![](/screenshots/wg01.png)
   
