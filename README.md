@@ -1,10 +1,14 @@
 # **Workout Logger 0.1.0**
 
-## Live version: https://myworkoutlogger.herokuapp.com/
+## (Disabled since 28th November) Live version: https://myworkoutlogger.herokuapp.com/ 
+
+"Heroku marked free databases for deletion. As of November 28th, 2022, free Heroku Postgres and Heroku Data for Redis® plans are no longer available. If Heroku deleted your free database and you want to recover your data, contact Support as soon as possible."
+
+Until I find another free hosting service I can only try presenting the projects locally.
 
 ## Preface
 
-In my past projects I mostly stuck to using Django with Vanilla/Plain JavaScript (following a Model-View-Controller design pattern). Now, when I think I got the fundamentals down, I decided to dive deeper into what Python and JavaScript have to offer. Hence why I decided to build this web application using Django REST API and React frameworks. Both are very large frameworks that offer a multitude of ways for doing things. This will require more time and an application that can be sensically large enough to try as many things as possible.
+In my past projects, I mostly stuck to using Django with Vanilla/Plain JavaScript (following a Model-View-Controller design pattern). Now, when I think I got the fundamentals down, I decided to dive deeper into what Python and JavaScript have to offer. Hence why I decided to build this web application using Django REST API and React frameworks. Both are very large frameworks that offer a multitude of ways for doing things. This will require more time and an application that can be sensically large enough to try as many things as possible.
 
 ## Table of Contents
 
